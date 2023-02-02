@@ -4,13 +4,23 @@ class DisplayInfor extends React.Component {
         //props => propoties  tai san
         console.log(this.props);
         // Detructuring
-        const {name,age} =this.props;
+        const {listUser} =this.props;
 
         return(
-            <div>
-                <div>My name is {name} </div>
-                <div>I am {age}</div>
-            </div>
+           <div>
+               {
+                   listUser.map((user,index)=>{
+                    // console.log(user);
+                    return (
+                        <div key={user.id}>
+                            <div>My name is {user.name} </div>
+                            <div>I'm am {user.age}</div>
+                            <div>I'm live {user.address}</div>
+                        </div>
+                   )
+                   })
+               }
+           </div>
         )
     }
 }
