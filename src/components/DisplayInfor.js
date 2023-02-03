@@ -25,7 +25,8 @@ class DisplayInfor extends React.Component {
                     </span>
                 </div>
                 {this.state.hideList &&
-                    <div>
+                    //Fragment
+                        <>
                         {
                             listUser.map((user, index) => {
                                 // console.log(user);
@@ -38,7 +39,7 @@ class DisplayInfor extends React.Component {
                                 )
                             })
                         }
-                    </div>
+                    </>
                 }
             </div>
 
