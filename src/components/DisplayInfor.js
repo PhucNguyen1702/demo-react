@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './DisplayInfor.scss';
 // class DisplayInfor extends React.Component {
 //
@@ -37,9 +37,17 @@ const DisplayInfor = (props) => {
         //props => propoties  tai san
         // Detructuring
         const {listUser} =props;
+        const [isShowHideListUser,setShowHideListUser] = useState(true);
+        const handelHideListUser = () => {
+                // console.log(alert("me"));
+                setShowHideListUser(!isShowHideListUser);
+        }
         return(
             <div className={'display-infor-container'}>
-                {true &&
+                <div onClick={()=>{handelHideListUser()}}>
+                    <span>{isShowHideListUser ===true ? "Hide List User" :"Show List User"}</span>
+                </div>
+                {isShowHideListUser &&
                     //Fragment
                         <>
                         {
@@ -49,7 +57,6 @@ const DisplayInfor = (props) => {
                                     <div key={user.id} className={user.age > 22 ? "green" : "red"}>
                                         <div>My name is {user.name} </div>
                                         <div>I'm am {user.age}</div>
-                                        <div>I'm live {user.address}</div>
                                         <button onClick={()=>props.deleteUser(user.id)}>Delete</button>
                                     </div>
                                 )
